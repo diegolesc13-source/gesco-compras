@@ -210,17 +210,47 @@ tbody td{padding:9px 13px;vertical-align:middle}
 .dpct{font-size:14px;font-weight:700;min-width:40px;text-align:right}
 
 /* Proveedores inline */
-.plist{display:flex;flex-direction:column;gap:5px;margin-top:6px}
-.prow{background:var(--s1);border:1px solid var(--b1);border-radius:7px;padding:7px 10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.plist{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.prow{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:10px 13px;display:flex;flex-direction:column;gap:8px}
+.prow-top{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.prow-prices{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:6px;align-items:end;background:var(--s2);border-radius:7px;padding:8px 10px;margin-top:2px}
+.price-field{display:flex;flex-direction:column;gap:3px}
+.price-lbl{font-size:8.5px;text-transform:uppercase;letter-spacing:1px;color:var(--txd);font-weight:600}
+.price-val{font-size:11px;font-weight:700;color:var(--tx);padding:3px 0}
+.price-auto{color:var(--acc);font-family:var(--fd)}
+.best-badge{background:rgba(34,197,94,.14);color:var(--g);border:1px solid rgba(34,197,94,.28);font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;white-space:nowrap;align-self:center}
 .il2{background:transparent;border:none;border-bottom:1px dashed var(--b2);color:var(--tx);font-family:var(--fb);font-size:12px;outline:none;padding:2px 4px;transition:border-color .14s}
 .il2:focus{border-color:var(--acc)}
-.ilw{width:110px}.ilw2{width:80px}.ilw3{width:65px}
+.ilw{width:130px}.ilw2{width:75px}.ilw3{width:65px}
+.il-num{width:85px;text-align:right}
+.il-sel{width:60px;text-align:right}
+.il-mon{width:68px;background:var(--s3);border:1px solid var(--b2);color:var(--tx);border-radius:5px;padding:3px 5px;font-family:var(--fb);font-size:11px;outline:none}
+.il-mon:focus{border-color:var(--acc)}
 .psel{display:flex;align-items:center;gap:4px;font-size:11px;cursor:pointer;color:var(--txm)}
 .psel input{accent-color:var(--g)}
 .apb{font-size:10px;padding:3px 8px;border-radius:5px;border:1px dashed var(--b2);background:transparent;color:var(--acc);cursor:pointer;margin-top:5px}
 .apb:hover{background:rgba(245,166,35,.08)}
 .db{background:none;border:none;cursor:pointer;color:var(--txd);font-size:14px;padding:0 2px;line-height:1;transition:color .12s}
 .db:hover{color:var(--r)}
+
+/* ══ COMPARATIVOS ══ */
+.cmp-wrap{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad2);margin-bottom:14px;overflow:hidden}
+.cmp-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--b1);cursor:pointer;user-select:none}
+.cmp-code{font-family:var(--fd);font-size:10px;color:var(--acc);letter-spacing:1.5px;font-weight:800}
+.cmp-name{flex:1;font-size:13px;font-weight:600}
+.cmp-body{padding:14px 16px;overflow-x:auto}
+.cmp-tbl{width:100%;border-collapse:collapse;font-size:11px;min-width:700px}
+.cmp-tbl th{background:var(--s2);padding:7px 10px;text-align:left;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--txm);font-weight:700;white-space:nowrap}
+.cmp-tbl th.num{text-align:right}
+.cmp-tbl td{padding:7px 10px;border-top:1px solid var(--b1);vertical-align:middle}
+.cmp-tbl td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.cmp-tbl tr:hover td{background:rgba(255,255,255,.018)}
+.cmp-tbl .best-row td{background:rgba(34,197,94,.05)}
+.cmp-tbl .best-row td:first-child{border-left:2px solid var(--g)}
+.mon-sym{font-size:9px;color:var(--txm);margin-right:1px}
+.cmp-section{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--txd);font-weight:700;padding:8px 10px 4px;background:var(--s2)}
+.cmp-filters{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.cmp-export{margin-top:10px;display:flex;gap:7px;flex-wrap:wrap}
 
 /* ══ SEG cards ══ */
 .segcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad2);margin-bottom:12px;overflow:hidden}
@@ -265,6 +295,56 @@ tbody td{padding:9px 13px;vertical-align:middle}
 /* EMPTY */
 .empty{text-align:center;padding:32px;color:var(--txm);font-size:13px}
 
+.cmp-tbl .tfoot-row td{background:var(--s2);border-top:2px solid var(--b2);padding:9px 10px;font-weight:700}
+.cmp-tbl .tfoot-won td{background:rgba(34,197,94,.04);border-top:1px dashed rgba(34,197,94,.25);padding:8px 10px}
+
+/* ══ VISTA COMPLETA MODAL ══ */
+.fullview-overlay{position:fixed;inset:0;z-index:800;background:#060a10;display:flex;flex-direction:column;overflow:hidden}
+.fv-topbar{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--s1);border-bottom:1px solid var(--b1);flex-shrink:0}
+.fv-title{font-family:var(--fd);font-size:16px;font-weight:800;color:var(--acc);flex:1}
+.fv-body{flex:1;overflow:auto;padding:24px 28px}
+.fv-tbl-wrap{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad2);overflow:hidden}
+.fv-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.fv-tbl th{background:var(--s2);padding:9px 12px;text-align:left;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--txm);font-weight:700;white-space:nowrap;position:relative}
+.fv-tbl th.num{text-align:right}
+.fv-tbl td{padding:9px 12px;border-top:1px solid var(--b1);vertical-align:middle}
+.fv-tbl td.num{text-align:right;font-variant-numeric:tabular-nums}
+.fv-tbl tr:hover td{background:rgba(255,255,255,.018)}
+.fv-tbl .tfoot-row td{background:var(--s2);border-top:2px solid var(--b2);padding:9px 12px;font-weight:700}
+.fv-tbl .tfoot-won td{background:rgba(34,197,94,.04);border-top:1px dashed rgba(34,197,94,.25);padding:8px 12px}
+.col-hidden{display:none!important}
+.col-toggle-btn{background:none;border:none;cursor:pointer;color:var(--txd);font-size:11px;padding:0 0 0 5px;line-height:1;transition:color .12s;vertical-align:middle}
+.col-toggle-btn:hover{color:var(--r)}
+.col-vis-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.col-chip{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--b2);background:var(--s2);color:var(--txm);transition:all .13s;user-select:none}
+.col-chip.hidden-chip{background:rgba(239,68,68,.08);color:var(--r);border-color:rgba(239,68,68,.22);text-decoration:line-through;opacity:.7}
+.col-chip:hover{border-color:var(--acc);color:var(--acc)}
+.fv-meta{font-size:11px;color:var(--txm);margin-bottom:16px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.fv-meta strong{color:var(--tx)}
+.screenshot-flash{animation:flash .3s ease}
+@keyframes flash{0%{opacity:1}50%{opacity:.2}100%{opacity:1}}
+.tfoot-lbl{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:var(--txm);font-weight:700}
+.tfoot-sub{font-size:12px;color:var(--tx);font-weight:700;margin-top:2px}
+.tfoot-tot{font-size:14px;font-weight:800;color:var(--acc);font-family:var(--fd)}
+.tfoot-pen{font-size:9.5px;color:var(--tl);margin-top:2px}
+.tfoot-best{color:var(--g)}
+.f-best-on{background:rgba(34,197,94,.1)!important;border-color:rgba(34,197,94,.35)!important;color:var(--g)!important}
+
+/* ══ TIPO DE CAMBIO PANEL ══ */
+.fx-bar{display:flex;align-items:center;gap:10px;background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:8px 14px;margin-bottom:14px;flex-wrap:wrap}
+.fx-title{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--txm);font-weight:700;white-space:nowrap}
+.fx-rate{display:flex;align-items:center;gap:5px;font-size:12px}
+.fx-flag{font-size:14px}
+.fx-val{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--acc)}
+.fx-sym{font-size:10px;color:var(--txm)}
+.fx-date{font-size:9px;color:var(--txd);font-family:var(--fb)}
+.fx-src{font-size:9px;color:var(--txd);margin-left:auto}
+.fx-spin{display:inline-block;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fx-status-ok{color:var(--g)}
+.fx-status-err{color:var(--y)}
+.pen-eq{font-size:9.5px;color:var(--tl);font-weight:600;background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.2);border-radius:4px;padding:1px 5px;white-space:nowrap}
+
 /* ══ TABS (Items por Proyecto) ══ */
 .tabs-wrap{display:flex;align-items:flex-end;gap:8px;margin-bottom:0;border-bottom:2px solid var(--b1);padding-bottom:0}
 .tabs-scroll{flex:1;overflow-x:auto;overflow-y:visible}
@@ -284,6 +364,7 @@ tbody td{padding:9px 13px;vertical-align:middle}
 }
 @media(max-width:580px){.fg{grid-template-columns:1fr}.ig{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr 1fr}}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -313,6 +394,10 @@ tbody td{padding:9px 13px;vertical-align:middle}
     <div class="sb-item" onclick="sv('seguimiento')">
       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
       <span>Seguimiento Despacho</span>
+    </div>
+    <div class="sb-item" onclick="sv('comparativos')">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+      <span>Comparativos</span>
     </div>
     <div class="sb-sec">Sistema</div>
     <div class="sb-item" onclick="sv('actividad')">
@@ -435,6 +520,41 @@ tbody td{padding:9px 13px;vertical-align:middle}
       <div id="seg-list"></div>
     </div>
 
+    <!-- ══ COMPARATIVOS ══ -->
+    <div class="view" id="view-comparativos">
+      <!-- Panel Tipo de Cambio -->
+      <div class="fx-bar" id="fx-bar">
+        <span class="fx-title">💱 Tipo de Cambio</span>
+        <div class="fx-rate">
+          <span class="fx-flag">🇺🇸</span>
+          <span class="fx-sym">USD →</span>
+          <span class="fx-val" id="fx-usd">—</span>
+          <span class="fx-sym">PEN</span>
+        </div>
+        <div class="fx-rate">
+          <span class="fx-flag">🇪🇺</span>
+          <span class="fx-sym">EUR →</span>
+          <span class="fx-val" id="fx-eur">—</span>
+          <span class="fx-sym">PEN</span>
+        </div>
+        <span class="fx-date" id="fx-date">Cargando...</span>
+        <button class="btn bg bxs" onclick="fetchFX(true)" title="Actualizar tipo de cambio" style="margin-left:4px">⟳ Actualizar</button>
+        <span class="fx-src" id="fx-src"></span>
+      </div>
+      <div class="cmp-filters">
+        <input class="fi fi-w" type="text" id="s-cmp" placeholder="🔍 Buscar requerimiento o item…" oninput="renderComparativos()">
+        <select class="fi" id="f-cmp-req" onchange="renderComparativos()"><option value="">Todos los requerimientos</option></select>
+        <select class="fi" id="f-cmp-tipo" onchange="renderComparativos()"><option value="">Todos los tipos</option></select>
+        <select class="fi" id="f-cmp-mon" onchange="renderComparativos()"><option value="">Todas las monedas</option><option>PEN</option><option>USD</option><option>EUR</option></select>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px;border:1px solid var(--b2);background:var(--s2);color:var(--txm);transition:all .14s" id="f-best-wrap">
+          <input type="checkbox" id="f-cmp-best" onchange="renderComparativos()" style="accent-color:var(--g);width:13px;height:13px">
+          <span>★ Solo mejor opción</span>
+        </label>
+        <button class="btn bg bsm" onclick="exportCmpCSV()">📥 Exportar CSV</button>
+      </div>
+      <div id="cmp-list"><div class="empty">Sin datos de proveedores con precios aún.<br>Completa los campos de precio en "Items por Proyecto".</div></div>
+    </div>
+
     <!-- ══ ACTIVIDAD ══ -->
     <div class="view" id="view-actividad">
       <div class="card">
@@ -476,6 +596,18 @@ tbody td{padding:9px 13px;vertical-align:middle}
 
   </div><!-- /content -->
 </main>
+
+<!-- ══ FULLVIEW COMPARATIVO ══ -->
+<div class="fullview-overlay" id="fv-overlay" style="display:none">
+  <div class="fv-topbar">
+    <div class="fv-title" id="fv-title">Vista Completa — Comparativo</div>
+    <button class="btn bg bsm" onclick="screenshotFV()" id="fv-screenshot-btn">📸 Captura</button>
+    <button class="btn bt bsm" onclick="closeFV()">✕ Cerrar</button>
+  </div>
+  <div class="fv-body" id="fv-body">
+    <!-- rendered by openFV() -->
+  </div>
+</div>
 
 <!-- ══ MODAL REQ (solo datos generales) ══ -->
 <div class="ov" id="ov-req">
@@ -609,6 +741,7 @@ const PAGES={
   requerimientos:{t:'Requerimientos',      s:'Gestión de requerimientos de compra'},
   items:        {t:'Items por Proyecto',   s:'Gestiona items, cantidades y proveedores por requerimiento'},
   seguimiento:  {t:'Seguimiento de Despacho', s:'Actualiza cantidades despachadas por item'},
+  comparativos: {t:'Comparativos de Precios', s:'Tabla comparativa de proveedores por requerimiento'},
   actividad:    {t:'Actividad',            s:'Historial cronológico de cambios'},
   sync:         {t:'Sincronización',       s:'Exportar e importar datos del sistema'}
 };
@@ -624,6 +757,7 @@ function sv(v){
   if(v==='requerimientos') rT();
   if(v==='items')          renderItemsView();
   if(v==='seguimiento')    renderSeg();
+  if(v==='comparativos')   renderComparativos();
   if(v==='actividad')      renderLog();
   if(v==='sync')           renderSync();
 }
@@ -1041,14 +1175,7 @@ function renderItems(){
     const realIdx=itemsPage.indexOf(item);
     const iav=calcIA(item),ist=stLabel(iav),ic=stCol(iav===100?100:iav===0?0:1);
 
-    const provHtml=(item.proveedores||[]).map((p,pi)=>`
-      <div class="prow">
-        <input class="il2 ilw" placeholder="Proveedor" value="${esc(p.nombre||'')}" oninput="updProv(${realIdx},${pi},'nombre',this.value)">
-        <input class="il2 ilw2" placeholder="S/ Cotiz." value="${esc(p.cotizacion||'')}" oninput="updProv(${realIdx},${pi},'cotizacion',this.value)">
-        <input class="il2 ilw3" placeholder="Plazo" value="${esc(p.plazo||'')}" oninput="updProv(${realIdx},${pi},'plazo',this.value)">
-        <label class="psel"><input type="checkbox" ${p.sel?'checked':''} onchange="updProv(${realIdx},${pi},'sel',this.checked)"> Selec.</label>
-        <button class="db" onclick="rmProv(${realIdx},${pi})">✕</button>
-      </div>`).join('');
+    const provHtml=buildProvHtml(realIdx, item);
 
     return `<div class="item-card" id="ic-${realIdx}">
       <div class="ic-head" onclick="toggleIC(${realIdx})">
@@ -1178,10 +1305,192 @@ function refreshItemHead(idx,item){
   if(badge){badge.className=`sb2 ${stCls(iav===100?100:iav===0?0:1)}`;badge.innerHTML=`<span class="sdot"></span>${ist}`;}
 }
 
+// ══════════════════════════════════════
+//  TIPO DE CAMBIO (FX)
+// ══════════════════════════════════════
+let FX = { USD: 3.70, EUR: 4.05, PEN: 1, updatedAt: null, source: 'fallback' };
+const FX_CACHE_KEY = 'gesco_fx_cache';
+const FX_CACHE_TTL = 6 * 60 * 60 * 1000; // 6 horas en ms
+
+async function fetchFX(force=false){
+  // Try cache first
+  if(!force){
+    try{
+      const cached=JSON.parse(localStorage.getItem(FX_CACHE_KEY)||'null');
+      if(cached && (Date.now()-cached.ts) < FX_CACHE_TTL){
+        FX={...cached.rates, updatedAt: new Date(cached.ts), source: cached.source};
+        updateFXBar(); return;
+      }
+    }catch(e){}
+  }
+
+  setFXLoading(true);
+
+  // Intentar fuentes en cascada
+  const sources = [
+    fetchFromExchangeRateAPI,
+    fetchFromFrankfurter,
+    fetchFromFallback
+  ];
+
+  for(const src of sources){
+    try{
+      const result = await src();
+      if(result){
+        FX = { USD: result.USD, EUR: result.EUR, PEN: 1, updatedAt: new Date(), source: result.source };
+        localStorage.setItem(FX_CACHE_KEY, JSON.stringify({
+          rates: { USD: FX.USD, EUR: FX.EUR, PEN: 1 },
+          ts: Date.now(),
+          source: FX.source
+        }));
+        updateFXBar();
+        setFXLoading(false);
+        toast(`Tipo de cambio actualizado (${FX.source}) ✓`, 'success');
+        return;
+      }
+    }catch(e){ continue; }
+  }
+
+  setFXLoading(false);
+  updateFXBar();
+}
+
+async function fetchFromExchangeRateAPI(){
+  // ExchangeRate-API free endpoint (no key required for basic)
+  const res = await fetch('https://api.exchangerate-api.com/v4/latest/PEN', {signal: AbortSignal.timeout(5000)});
+  if(!res.ok) throw new Error('fail');
+  const d = await res.json();
+  // d.rates.USD = cuántos USD por 1 PEN → invertimos para PEN por 1 USD
+  return {
+    USD: +(1 / d.rates.USD).toFixed(4),
+    EUR: +(1 / d.rates.EUR).toFixed(4),
+    source: 'ExchangeRate-API'
+  };
+}
+
+async function fetchFromFrankfurter(){
+  const res = await fetch('https://api.frankfurter.app/latest?base=PEN&symbols=USD,EUR', {signal: AbortSignal.timeout(5000)});
+  if(!res.ok) throw new Error('fail');
+  const d = await res.json();
+  return {
+    USD: +(1 / d.rates.USD).toFixed(4),
+    EUR: +(1 / d.rates.EUR).toFixed(4),
+    source: 'Frankfurter'
+  };
+}
+
+async function fetchFromFallback(){
+  // Tipo de cambio BCRP referencial (valores recientes hard-coded como último recurso)
+  return { USD: 3.70, EUR: 4.02, source: 'Referencial (sin conexión)' };
+}
+
+function setFXLoading(on){
+  const src=document.getElementById('fx-src');
+  if(src) src.innerHTML=on?'<span class="fx-spin">⟳</span> Obteniendo...':'';
+}
+
+function updateFXBar(){
+  const usdEl=document.getElementById('fx-usd');
+  const eurEl=document.getElementById('fx-eur');
+  const dateEl=document.getElementById('fx-date');
+  const srcEl=document.getElementById('fx-src');
+  if(usdEl) usdEl.textContent=FX.USD.toFixed(4);
+  if(eurEl) eurEl.textContent=FX.EUR.toFixed(4);
+  if(dateEl){
+    const d=FX.updatedAt;
+    dateEl.textContent=d?`Actualizado: ${d.toLocaleDateString('es-PE')} ${d.toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})}`:'-';
+  }
+  if(srcEl) srcEl.innerHTML=`<span class="${FX.source.includes('Referencial')?'fx-status-err':'fx-status-ok'}">● ${FX.source}</span>`;
+}
+
+// Convertir cualquier monto a PEN para comparación homogénea
+function toPEN(amount, moneda){
+  const rate = FX[moneda] || 1;
+  return +(amount * rate).toFixed(4);
+}
+
+// ══════════════════════════════════════
+//  HELPERS PRECIOS
+// ══════════════════════════════════════
+const MON_SYM={PEN:'S/',USD:'$',EUR:'€'};
+
+function calcPreciosProv(p, cantSol){
+  const pu=Number(p.precioUnit)||0;
+  const cant=Number(cantSol)||0;
+  const subtotal=+(pu*cant).toFixed(2);
+  const igv=+(subtotal*0.18).toFixed(2);
+  const total=+(subtotal+igv).toFixed(2);
+  const totalPEN=+toPEN(total, p.moneda||'PEN').toFixed(2);
+  return {subtotal,igv,total,totalPEN};
+}
+
+function fmtMoney(n,mon){
+  const sym=MON_SYM[mon]||'';
+  return `<span class="mon-sym">${sym}</span>${Number(n).toLocaleString('es-PE',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
+}
+
+function fmtPEN(n){
+  return `<span class="pen-eq">≈ S/${Number(n).toLocaleString('es-PE',{minimumFractionDigits:2,maximumFractionDigits:2})}</span>`;
+}
+
+function buildProvHtml(itemIdx, item){
+  const provs=item.proveedores||[];
+  if(!provs.length) return '';
+  // Comparar usando totalPEN (convertido al tipo de cambio del día)
+  const withPrice=provs.map((p,pi)=>({pi,...calcPreciosProv(p,item.cantSol)})).filter(x=>x.totalPEN>0);
+  const bestPEN=withPrice.length?Math.min(...withPrice.map(x=>x.totalPEN)):null;
+
+  return provs.map((p,pi)=>{
+    const {subtotal,igv,total,totalPEN}=calcPreciosProv(p,item.cantSol);
+    const mon=p.moneda||'PEN';
+    const isBest=bestPEN!==null&&totalPEN===bestPEN&&totalPEN>0;
+    const showPEN=mon!=='PEN'&&total>0;
+    return `<div class="prow" id="prow-${itemIdx}-${pi}">
+      <div class="prow-top">
+        <input class="il2 ilw" placeholder="Nombre proveedor" value="${esc(p.nombre||'')}" oninput="updProv(${itemIdx},${pi},'nombre',this.value)">
+        <select class="il-mon" onchange="updProvCalc(${itemIdx},${pi},'moneda',this.value)">
+          <option ${mon==='PEN'?'selected':''}>PEN</option>
+          <option ${mon==='USD'?'selected':''}>USD</option>
+          <option ${mon==='EUR'?'selected':''}>EUR</option>
+        </select>
+        <input class="il2 ilw3" placeholder="Plazo" value="${esc(p.plazo||'')}" oninput="updProv(${itemIdx},${pi},'plazo',this.value)">
+        <label class="psel"><input type="checkbox" ${p.sel?'checked':''} onchange="updProv(${itemIdx},${pi},'sel',this.checked)"> Seleccionado</label>
+        ${isBest?'<span class="best-badge">★ Mejor precio</span>':''}
+        <button class="db" style="margin-left:auto" onclick="rmProv(${itemIdx},${pi})">✕</button>
+      </div>
+      <div class="prow-prices">
+        <div class="price-field">
+          <span class="price-lbl">Precio Unitario</span>
+          <input class="il2 il-num" type="number" min="0" step="0.01" placeholder="0.00"
+            value="${p.precioUnit||''}" oninput="updProvCalc(${itemIdx},${pi},'precioUnit',this.value)"
+            style="width:100%;font-size:13px">
+        </div>
+        <div class="price-field">
+          <span class="price-lbl">Subtotal</span>
+          <div class="price-val price-auto" id="pst-${itemIdx}-${pi}">${fmtMoney(subtotal,mon)}</div>
+        </div>
+        <div class="price-field">
+          <span class="price-lbl">IGV (18%)</span>
+          <div class="price-val price-auto" id="pigv-${itemIdx}-${pi}">${fmtMoney(igv,mon)}</div>
+        </div>
+        <div class="price-field" style="grid-column:span 1">
+          <span class="price-lbl">Precio Total</span>
+          <div class="price-val price-auto" style="color:var(--acc);font-size:13px" id="ptot-${itemIdx}-${pi}">${fmtMoney(total,mon)}</div>
+          <div id="ptot-pen-${itemIdx}-${pi}" style="margin-top:3px">${showPEN?fmtPEN(totalPEN):''}</div>
+        </div>
+        <div class="price-field">
+          <span class="price-lbl">Cant. Req.</span>
+          <div class="price-val" style="color:var(--txm)">${item.cantSol||0} ${esc(item.unidad||'')}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function addProv(idx){
   const r=data.reqs.find(x=>x.id===curReqId);
   if(!r||!r.items[idx]) return;
-  r.items[idx].proveedores.push({nombre:'',cotizacion:'',plazo:'',sel:false});
+  r.items[idx].proveedores.push({nombre:'',moneda:'PEN',precioUnit:'',plazo:'',sel:false});
   save(); refreshProvList(idx,r.items[idx]);
 }
 
@@ -1199,27 +1508,524 @@ function updProv(itemIdx,provIdx,field,value){
   save();
 }
 
+function updProvCalc(itemIdx,provIdx,field,value){
+  const r=data.reqs.find(x=>x.id===curReqId);
+  if(!r?.items[itemIdx]?.proveedores[provIdx]) return;
+  r.items[itemIdx].proveedores[provIdx][field]=field==='precioUnit'?Number(value)||0:value;
+  save();
+  // live recalculate
+  const item=r.items[itemIdx];
+  const p=item.proveedores[provIdx];
+  const {subtotal,igv,total,totalPEN}=calcPreciosProv(p,item.cantSol);
+  const mon=p.moneda||'PEN';
+  const stEl=document.getElementById(`pst-${itemIdx}-${provIdx}`);
+  const igvEl=document.getElementById(`pigv-${itemIdx}-${provIdx}`);
+  const totEl=document.getElementById(`ptot-${itemIdx}-${provIdx}`);
+  const penEl=document.getElementById(`ptot-pen-${itemIdx}-${provIdx}`);
+  if(stEl) stEl.innerHTML=fmtMoney(subtotal,mon);
+  if(igvEl) igvEl.innerHTML=fmtMoney(igv,mon);
+  if(totEl) totEl.innerHTML=fmtMoney(total,mon);
+  if(penEl) penEl.innerHTML=(mon!=='PEN'&&total>0)?fmtPEN(totalPEN):'';
+  // refresh best-price badges usando totalPEN para comparación justa
+  refreshBestBadges(itemIdx,item);
+}
+
+function refreshBestBadges(itemIdx,item){
+  const provs=item.proveedores||[];
+  const withPrice=provs.map((p,pi)=>({pi,...calcPreciosProv(p,item.cantSol)})).filter(x=>x.totalPEN>0);
+  if(!withPrice.length) return;
+  const bestPEN=Math.min(...withPrice.map(x=>x.totalPEN));
+  provs.forEach((p,pi)=>{
+    const row=document.getElementById(`prow-${itemIdx}-${pi}`);
+    if(!row) return;
+    const {totalPEN}=calcPreciosProv(p,item.cantSol);
+    const top=row.querySelector('.prow-top');
+    let badge=top.querySelector('.best-badge');
+    const isBest=totalPEN>0&&Math.abs(totalPEN-bestPEN)<0.001;
+    if(isBest&&!badge){
+      badge=document.createElement('span');
+      badge.className='best-badge';
+      badge.textContent='★ Mejor precio';
+      top.insertBefore(badge,top.querySelector('.db'));
+    } else if(!isBest&&badge){
+      badge.remove();
+    }
+  });
+}
+
 function refreshProvList(itemIdx,item){
   const el=document.getElementById('pl-'+itemIdx);
   if(!el) return;
-  el.innerHTML=(item.proveedores||[]).map((p,pi)=>`
-    <div class="prow">
-      <input class="il2 ilw" placeholder="Proveedor" value="${esc(p.nombre||'')}" oninput="updProv(${itemIdx},${pi},'nombre',this.value)">
-      <input class="il2 ilw2" placeholder="S/ Cotiz." value="${esc(p.cotizacion||'')}" oninput="updProv(${itemIdx},${pi},'cotizacion',this.value)">
-      <input class="il2 ilw3" placeholder="Plazo" value="${esc(p.plazo||'')}" oninput="updProv(${itemIdx},${pi},'plazo',this.value)">
-      <label class="psel"><input type="checkbox" ${p.sel?'checked':''} onchange="updProv(${itemIdx},${pi},'sel',this.checked)"> Selec.</label>
-      <button class="db" onclick="rmProv(${itemIdx},${pi})">✕</button>
-    </div>`).join('');
+  el.innerHTML=buildProvHtml(itemIdx,item);
+}
+
+// ══════════════════════════════════════
+//  COMPARATIVOS
+// ══════════════════════════════════════
+function renderComparativos(){
+  const srch=(document.getElementById('s-cmp')?.value||'').toLowerCase();
+  const fReq=document.getElementById('f-cmp-req')?.value||'';
+  const fTipo=document.getElementById('f-cmp-tipo')?.value||'';
+  const fMon=document.getElementById('f-cmp-mon')?.value||'';
+  const fBest=document.getElementById('f-cmp-best')?.checked||false;
+
+  // Estilo visual del checkbox "mejor opción"
+  const bw=document.getElementById('f-best-wrap');
+  if(bw) bw.className=bw.className.replace(' f-best-on','')+(fBest?' f-best-on':'');
+
+  // Populate req filter
+  const reqEl=document.getElementById('f-cmp-req');
+  if(reqEl){
+    const cv=reqEl.value;
+    reqEl.innerHTML='<option value="">Todos los requerimientos</option>'+
+      data.reqs.map(r=>`<option value="${r.id}" ${cv===r.id?'selected':''}>${esc(r.codigo)} — ${esc(r.nombre)}</option>`).join('');
+  }
+  // Populate tipo filter
+  const tipoEl=document.getElementById('f-cmp-tipo');
+  if(tipoEl){
+    const allTipos=[...new Set(data.reqs.flatMap(r=>(r.items||[]).map(i=>i.tipoProveedor)).filter(Boolean))];
+    const cv=tipoEl.value;
+    tipoEl.innerHTML='<option value="">Todos los tipos</option>'+allTipos.map(t=>`<option ${cv===t?'selected':''}>${esc(t)}</option>`).join('');
+  }
+
+  // Filter reqs
+  let reqs=data.reqs;
+  if(fReq) reqs=reqs.filter(r=>r.id===fReq);
+
+  // Collect items with at least one proveedor con precio
+  const rows=[];
+  reqs.forEach(r=>{
+    (r.items||[]).forEach((item)=>{
+      if(fTipo&&item.tipoProveedor!==fTipo) return;
+      const provs=(item.proveedores||[]).filter(p=>(Number(p.precioUnit)||0)>0);
+      if(!provs.length) return;
+      const filtProvs=fMon?provs.filter(p=>(p.moneda||'PEN')===fMon):provs;
+      if(!filtProvs.length) return;
+      const q=(item.desc||'').toLowerCase();
+      if(srch&&!q.includes(srch)&&!(r.codigo||'').toLowerCase().includes(srch)&&!(r.nombre||'').toLowerCase().includes(srch)) return;
+      rows.push({r,item,provs:filtProvs});
+    });
+  });
+
+  const el=document.getElementById('cmp-list');
+  if(!rows.length){
+    el.innerHTML='<div class="empty">Sin datos de precios que coincidan con los filtros.<br>Completa "Precio Unitario" en la sección de Proveedores.</div>';
+    return;
+  }
+
+  // Group by req
+  const byReq=new Map();
+  rows.forEach(row=>{
+    if(!byReq.has(row.r.id)) byReq.set(row.r.id,[]);
+    byReq.get(row.r.id).push(row);
+  });
+
+  el.innerHTML=[...byReq.entries()].map(([rid,items])=>{
+    const r=items[0].r;
+    const maxProvs=Math.max(...items.map(x=>x.provs.length));
+
+    // ── Acumuladores ──
+    // acc[pi]    → suma de TODOS los valores de la columna pi
+    // accWon[pi] → suma SOLO de ítems donde pi es el ganador
+    const acc=Array.from({length:maxProvs},()=>({
+      subtotalPEN:0, totalPEN:0, subtotalNative:0, totalNative:0, monedas:new Set(), count:0
+    }));
+    const accWon=Array.from({length:maxProvs},()=>({
+      subtotalPEN:0, totalPEN:0, subtotalNative:0, totalNative:0, monedas:new Set(), count:0, nombre:''
+    }));
+    const accBest={subtotalPEN:0, totalPEN:0, count:0};
+
+    // ── Construir filas de la tabla ──
+    const tableRows=items.map(({item,provs})=>{
+      const calcRows=provs.map(p=>calcPreciosProv(p,item.cantSol));
+      const pensArr=calcRows.map(c=>c.totalPEN);
+      const validPens=pensArr.filter(x=>x>0);
+      const bestPEN=validPens.length?Math.min(...validPens):0;
+      const bestIdx=pensArr.indexOf(bestPEN);
+
+      const provCols=provs.map((p,pi)=>{
+        const {subtotal,igv,total,totalPEN}=calcRows[pi];
+        const mon=p.moneda||'PEN';
+        const isBest=totalPEN>0&&Math.abs(totalPEN-bestPEN)<0.001;
+        const showPEN=mon!=='PEN'&&total>0;
+
+        // Acumular TODOS
+        if(totalPEN>0){
+          const subPEN=+toPEN(subtotal,mon).toFixed(2);
+          acc[pi].subtotalPEN+=subPEN; acc[pi].totalPEN+=totalPEN;
+          acc[pi].subtotalNative+=subtotal; acc[pi].totalNative+=total;
+          acc[pi].monedas.add(mon); acc[pi].count++;
+        }
+        // Acumular solo los GANADOS por este proveedor
+        if(isBest&&totalPEN>0){
+          const subPEN=+toPEN(subtotal,mon).toFixed(2);
+          accWon[pi].subtotalPEN+=subPEN; accWon[pi].totalPEN+=totalPEN;
+          accWon[pi].subtotalNative+=subtotal; accWon[pi].totalNative+=total;
+          accWon[pi].monedas.add(mon); accWon[pi].count++;
+          if(!accWon[pi].nombre) accWon[pi].nombre=p.nombre||'';
+        }
+
+        if(fBest&&!isBest) return `<td class="num cmp-col-${rid}-${pi}" style="opacity:.18;font-size:10px;color:var(--txd);text-align:center">—</td>`;
+
+        return `<td class="num cmp-col-${rid}-${pi}" style="${isBest?'background:rgba(34,197,94,.06);border-left:2px solid var(--g)':''}">
+          <div style="font-size:11px;font-weight:600;color:${isBest?'var(--g)':'var(--tx)'};margin-bottom:3px">${esc(p.nombre||'—')}${isBest?' ★':''}</div>
+          <div style="font-size:10px;color:var(--txm)">PU: ${MON_SYM[mon]||''}${Number(p.precioUnit||0).toFixed(2)}</div>
+          <div style="font-size:10px;color:var(--txm)">Sub: ${MON_SYM[mon]||''}${subtotal.toFixed(2)}</div>
+          <div style="font-size:10px;color:var(--txm)">IGV: ${MON_SYM[mon]||''}${igv.toFixed(2)}</div>
+          <div style="font-weight:700;font-size:13px;color:${isBest?'var(--g)':'var(--acc)'}">
+            ${MON_SYM[mon]||''}${total.toFixed(2)} <span style="font-size:9px;color:var(--txm)">${mon}</span>
+          </div>
+          ${showPEN?`<div style="font-size:9.5px;color:var(--tl);margin-top:2px">≈ S/${totalPEN.toFixed(2)} <span style="color:var(--txd)">TC:${FX[mon].toFixed(3)}</span></div>`:''}
+          ${p.plazo?`<div style="font-size:9px;color:var(--txd);margin-top:2px">⏱ ${esc(p.plazo)}</div>`:''}
+        </td>`;
+      }).join('');
+
+      const bestCalc=calcRows[bestIdx>=0?bestIdx:0];
+      const bestProv=provs[bestIdx>=0?bestIdx:0];
+      if(bestCalc&&bestCalc.totalPEN>0){
+        const bestMon=bestProv?.moneda||'PEN';
+        accBest.subtotalPEN+=+toPEN(bestCalc.subtotal,bestMon).toFixed(2);
+        accBest.totalPEN+=bestCalc.totalPEN;
+        accBest.count++;
+      }
+
+      return `<tr>
+        <td style="font-size:10px;color:var(--txm);font-weight:600;white-space:nowrap">${esc(item.tipoProveedor||'—')}</td>
+        <td><div style="font-weight:500;font-size:12px">${esc(item.desc||'—')}</div></td>
+        <td class="num">${item.cantSol||0} ${esc(item.unidad||'')}</td>
+        ${provCols}
+        <td class="cmp-col-${rid}-best">
+          <span style="background:rgba(34,197,94,.12);color:var(--g);border:1px solid rgba(34,197,94,.25);font-size:10px;padding:3px 8px;border-radius:5px;font-weight:700;display:block;margin-bottom:3px">${esc(bestProv?.nombre||'—')}</span>
+          <span style="font-size:9.5px;color:var(--tl);display:block">≈ S/${bestCalc?.totalPEN.toFixed(2)||'—'}</span>
+        </td>
+      </tr>`;
+    });
+
+    // ── FILA 1: Σ de todos los ítems por columna ──
+    const tfootCols=Array.from({length:maxProvs},(_,pi)=>{
+      const a=acc[pi];
+      if(a.count===0) return `<td class="num tfoot-row cmp-col-${rid}-${pi}"><span style="color:var(--txd);font-size:10px">—</span></td>`;
+      const mono=a.monedas.size===1?[...a.monedas][0]:null;
+      const sym=mono?MON_SYM[mono]||'':'';
+      return `<td class="num tfoot-row cmp-col-${rid}-${pi}">
+        <div class="tfoot-lbl">Σ Subtotal</div>
+        <div class="tfoot-sub">${mono?`${sym}${a.subtotalNative.toFixed(2)} <span style="font-size:9px;color:var(--txm)">${mono}</span>`:`<span style="color:var(--txm);font-size:10px">Mixto</span>`}</div>
+        ${mono&&mono!=='PEN'?`<div class="tfoot-pen">≈ S/${a.subtotalPEN.toFixed(2)}</div>`:''}
+        <div class="tfoot-lbl" style="margin-top:5px">Σ Total</div>
+        <div class="tfoot-tot">${mono?`${sym}${a.totalNative.toFixed(2)}`:`<span style="font-size:12px">S/${a.totalPEN.toFixed(2)}</span>`}</div>
+        ${mono&&mono!=='PEN'?`<div class="tfoot-pen">≈ S/${a.totalPEN.toFixed(2)}</div>`:''}
+      </td>`;
+    }).join('');
+
+    const tfootBest=`<td class="num tfoot-row tfoot-best cmp-col-${rid}-best">
+      <div class="tfoot-lbl">Σ Subtotal</div>
+      <div class="tfoot-sub tfoot-best">S/${accBest.subtotalPEN.toFixed(2)}</div>
+      <div class="tfoot-lbl" style="margin-top:5px">Σ Total</div>
+      <div class="tfoot-tot tfoot-best">S/${accBest.totalPEN.toFixed(2)}</div>
+      <div style="font-size:9px;color:var(--g);margin-top:2px">${accBest.count} ítem(s) · equiv. PEN</div>
+    </td>`;
+
+    // ── FILA 2: Solo ítems GANADOS por cada proveedor ──
+    const tfootWonCols=Array.from({length:maxProvs},(_,pi)=>{
+      const w=accWon[pi];
+      if(w.count===0) return `<td class="num tfoot-won cmp-col-${rid}-${pi}" style="color:var(--txd);font-size:10px;text-align:center;font-style:italic">Sin ítems ganados</td>`;
+      const mono=w.monedas.size===1?[...w.monedas][0]:null;
+      const sym=mono?MON_SYM[mono]||'':'';
+      return `<td class="num tfoot-won cmp-col-${rid}-${pi}">
+        <div style="font-size:9px;color:var(--g);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px">★ ${w.count} ítem${w.count!==1?'s':''} ganado${w.count!==1?'s':''}</div>
+        <div style="font-size:10px;color:var(--txm)">Sub: ${mono?`${sym}${w.subtotalNative.toFixed(2)}`:`S/${w.subtotalPEN.toFixed(2)}`}</div>
+        ${mono&&mono!=='PEN'?`<div style="font-size:9px;color:var(--tl)">≈ S/${w.subtotalPEN.toFixed(2)}</div>`:''}
+        <div style="font-size:13px;font-weight:800;color:var(--g);font-family:var(--fd);margin-top:3px">${mono?`${sym}${w.totalNative.toFixed(2)}`:`S/${w.totalPEN.toFixed(2)}`}</div>
+        ${mono&&mono!=='PEN'?`<div style="font-size:9.5px;color:var(--tl)">≈ S/${w.totalPEN.toFixed(2)}</div>`:''}
+      </td>`;
+    }).join('');
+
+    const tfootWonBest=`<td class="num tfoot-won cmp-col-${rid}-best">
+      <div style="font-size:9px;color:var(--g);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px">★ ${accBest.count} ítem${accBest.count!==1?'s':''} (mejor global)</div>
+      <div style="font-size:10px;color:var(--txm)">Sub: S/${accBest.subtotalPEN.toFixed(2)}</div>
+      <div style="font-size:13px;font-weight:800;color:var(--g);font-family:var(--fd);margin-top:3px">S/${accBest.totalPEN.toFixed(2)}</div>
+    </td>`;
+
+    const provHeaders=Array.from({length:maxProvs},(_,i)=>`<th class="num" id="cmp-th-${rid}-${i}">Proveedor ${i+1}</th>`).join('');
+
+    return `<div class="cmp-wrap">
+      <div class="cmp-head" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+        <span class="cmp-code">${esc(r.codigo)}</span>
+        <div style="flex:1;min-width:0">
+          <div class="cmp-name">${esc(r.nombre)}</div>
+          <div style="font-size:10px;color:var(--txm);margin-top:2px">
+            <span class="sbg">${esc(r.sucursal||'')}</span>
+            ${r.proyecto?` · 📁 ${esc(r.proyecto)}`:''}
+            · ${items.length} ítem(s) con cotización
+            <span style="color:var(--tl);margin-left:6px">· TC: USD ${FX.USD.toFixed(3)} · EUR ${FX.EUR.toFixed(3)}</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <div style="text-align:right">
+            <div style="font-size:9px;color:var(--txm);text-transform:uppercase;letter-spacing:1px">Mejor opción total</div>
+            <div style="font-family:var(--fd);font-size:16px;font-weight:800;color:var(--g)">S/${accBest.totalPEN.toFixed(2)}</div>
+          </div>
+          <span style="font-size:11px;color:var(--txm)">▾</span>
+        </div>
+      </div>
+      <div class="cmp-body">
+        <table class="cmp-tbl">
+          <thead>
+            <tr>
+              <th>Tipo</th><th>Ítem</th><th class="num">Cantidad</th>
+              ${provHeaders}
+              <th>★ Mejor Opción</th>
+            </tr>
+          </thead>
+          <tbody>${tableRows.join('')}</tbody>
+          <tfoot>
+            <tr class="tfoot-row">
+              <td colspan="3" class="tfoot-row">
+                <div class="tfoot-lbl">Σ TODOS</div>
+                <div style="font-size:10px;color:var(--txm);margin-top:2px">Suma todos los ítems · equiv. PEN</div>
+              </td>
+              ${fBest
+                ?`<td colspan="${maxProvs}" class="num tfoot-row" style="opacity:.3;text-align:center;font-size:10px">—</td>`
+                :tfootCols}
+              ${tfootBest}
+            </tr>
+            <tr class="tfoot-won">
+              <td colspan="3" class="tfoot-won" style="padding:8px 10px">
+                <div style="font-size:9.5px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.8px">★ Ítems ganados</div>
+                <div style="font-size:10px;color:var(--txm);margin-top:2px">Por proveedor ganador · equiv. PEN</div>
+              </td>
+              ${tfootWonCols}
+              ${tfootWonBest}
+            </tr>
+          </tfoot>
+        </table>
+        <div class="col-vis-bar" id="cvb-${rid}">
+          <span style="font-size:10px;color:var(--txm);font-weight:600;text-transform:uppercase;letter-spacing:1px">👁 Columnas:</span>
+          ${Array.from({length:maxProvs},(_,i)=>{
+            const nm=accWon[i].nombre||('Proveedor '+(i+1));
+            return '<div class="col-chip" id="chip-'+rid+'-'+i+'" onclick="toggleCmpCol(\''+rid+'\','+i+','+maxProvs+')">'+esc(nm)+'</div>';
+          }).join('')}
+          <div class="col-chip" id="chip-${rid}-best" onclick="toggleCmpCol('${rid}','best',${maxProvs})" style="color:var(--g);border-color:rgba(34,197,94,.3)">★ Mejor Opción</div>
+        </div>
+        <div class="cmp-export" style="margin-top:8px;display:flex;gap:7px;flex-wrap:wrap">
+          <button class="btn bp bsm" onclick="openFV('${rid}')">🔍 Vista completa</button>
+          <button class="btn bg bsm" onclick="exportCmpReqCSV('${r.id}')">📥 Exportar ${esc(r.codigo)}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════
+//  TOGGLE COLUMNA PROVEEDOR
+// ══════════════════════════════════════
+// hiddenCols: Map rid → Set of hidden col keys ('0','1','2','best')
+const hiddenCols=new Map();
+
+function toggleCmpCol(rid,colKey,maxProvs){
+  if(!hiddenCols.has(rid)) hiddenCols.set(rid,new Set());
+  const set=hiddenCols.get(rid);
+  const key=String(colKey);
+  if(set.has(key)) set.delete(key); else set.add(key);
+  applyColVisibility(rid,maxProvs);
+}
+
+function applyColVisibility(rid,maxProvs){
+  const set=hiddenCols.get(rid)||new Set();
+  // header cells
+  document.querySelectorAll(`[class*="cmp-col-${rid}-"]`).forEach(el=>{
+    const cls=[...el.classList].find(c=>c.startsWith(`cmp-col-${rid}-`));
+    if(!cls) return;
+    const key=cls.replace(`cmp-col-${rid}-`,'');
+    el.classList.toggle('col-hidden',set.has(key));
+  });
+  // th header cells
+  for(let i=0;i<maxProvs;i++){
+    const th=document.getElementById(`cmp-th-${rid}-${i}`);
+    if(th) th.classList.toggle('col-hidden',set.has(String(i)));
+  }
+  // th best header — find by content scan
+  document.querySelectorAll(`#cmp-tbl-${rid} th`).forEach(th=>{
+    if(th.textContent.includes('★ Mejor')) th.classList.toggle('col-hidden',set.has('best'));
+  });
+  // update chips
+  const allKeys=[...Array.from({length:maxProvs},(_,i)=>String(i)),'best'];
+  allKeys.forEach(k=>{
+    const chip=document.getElementById(`chip-${rid}-${k==='best'?'best':k}`);
+    if(chip) chip.classList.toggle('hidden-chip',set.has(k));
+  });
+}
+
+// ══════════════════════════════════════
+//  VISTA COMPLETA (FULLVIEW)
+// ══════════════════════════════════════
+let fvCurrentRid=null;
+
+function openFV(rid){
+  fvCurrentRid=rid;
+  const src=document.querySelector(`.cmp-wrap [id^="cvb-${rid}"]`)?.closest('.cmp-wrap');
+  if(!src){ toast('No se encontró el comparativo','error'); return; }
+
+  const r=data.reqs.find(x=>x.id===rid);
+  document.getElementById('fv-title').textContent=
+    `Vista Completa — ${r?`${r.codigo} · ${r.nombre}`:'Comparativo'}`;
+
+  // Clonar la tabla completa del comparativo
+  const tblSrc=src.querySelector('.cmp-tbl');
+  if(!tblSrc){ toast('Sin tabla que mostrar','warning'); return; }
+
+  const hidden=hiddenCols.get(rid)||new Set();
+  const set=hiddenCols.get(rid)||new Set();
+
+  // Obtener nombres de proveedores de los chips
+  const chips=[...src.querySelectorAll('.col-chip')];
+  const visChips=chips.filter(function(c){
+    var id=c.id||'';
+    var key=id.replace('chip-'+rid+'-','');
+    return !set.has(key);
+  }).map(function(c){ return c.textContent.trim(); });
+
+  const meta=r?`
+    <div class="fv-meta">
+      <span>📋 <strong>${esc(r.codigo)}</strong></span>
+      <span>🏢 <strong>${esc(r.nombre)}</strong></span>
+      <span><strong>${esc(r.sucursal||'')}</strong></span>
+      ${r.proyecto?`<span>📁 <strong>${esc(r.proyecto)}</strong></span>`:''}
+      <span style="color:var(--tl)">TC: USD ${FX.USD.toFixed(3)} · EUR ${FX.EUR.toFixed(3)}</span>
+      <span style="color:var(--txd);font-size:10px">${new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'long',year:'numeric'})}</span>
+    </div>`:'';
+
+  // Clonar tabla y remover col-hidden para que en fullview se respeten
+  const tblClone=tblSrc.cloneNode(true);
+  // En la vista completa respetamos la misma visibilidad
+  tblClone.classList.add('fv-tbl');
+  tblClone.id='fv-inner-tbl';
+  // quitar id duplicados del clon
+  tblClone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+
+  const visBarHtml='<div class="col-vis-bar" style="margin-bottom:12px">'
+    +'<span style="font-size:10px;color:var(--txm);font-weight:600;text-transform:uppercase;letter-spacing:1px">👁 Columnas visibles:</span>'
+    +chips.map(function(c){
+        var id=c.id||'';
+        var key=id.replace('chip-'+rid+'-','');
+        var isHidden=set.has(key);
+        return '<div class="col-chip'+(isHidden?' hidden-chip':'')+'" onclick="fvToggleCol(\''+rid+'\',\''+key+'\',this)">'+c.textContent.trim()+'</div>';
+      }).join('')
+    +'</div>';
+
+  document.getElementById('fv-body').innerHTML=`
+    ${meta}
+    ${visBarHtml}
+    <div class="fv-tbl-wrap" id="fv-capture-zone">
+      ${tblClone.outerHTML}
+    </div>`;
+
+  document.getElementById('fv-overlay').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+
+function fvToggleCol(rid,key,chip){
+  // toggle also in main view
+  const set=hiddenCols.get(rid)||(hiddenCols.set(rid,new Set())&&hiddenCols.get(rid));
+  if(set.has(key)) set.delete(key); else set.add(key);
+  chip.classList.toggle('hidden-chip',set.has(key));
+  // apply to fv table
+  document.querySelectorAll(`#fv-inner-tbl .cmp-col-${rid}-${key}, #fv-inner-tbl th`).forEach(el=>{
+    const cls=[...el.classList].find(c=>c===`cmp-col-${rid}-${key}`);
+    if(cls||( key==='best'&&el.textContent.includes('★ Mejor')))
+      el.classList.toggle('col-hidden',set.has(key));
+  });
+  // apply to main comparativo view  
+  const maxP=Math.max(...data.reqs.find(x=>x.id===rid)?.items?.map(i=>(i.proveedores||[]).length)||[0]);
+  applyColVisibility(rid,maxP);
+}
+
+function closeFV(){
+  document.getElementById('fv-overlay').style.display='none';
+  document.body.style.overflow='';
+  fvCurrentRid=null;
+}
+
+async function screenshotFV(){
+  const zone=document.getElementById('fv-capture-zone');
+  if(!zone){ toast('Nada que capturar','warning'); return; }
+  const btn=document.getElementById('fv-screenshot-btn');
+  btn.textContent='⏳ Capturando...'; btn.disabled=true;
+  try{
+    const canvas=await html2canvas(zone,{
+      backgroundColor:'#0f1520',
+      scale:2,
+      useCORS:true,
+      logging:false
+    });
+    // Flash feedback
+    zone.classList.add('screenshot-flash');
+    setTimeout(()=>zone.classList.remove('screenshot-flash'),300);
+    // Download
+    const r=data.reqs.find(x=>x.id===fvCurrentRid);
+    const fname=`gesco_comparativo_${r?.codigo||'tabla'}_${today()}.png`;
+    const a=document.createElement('a');
+    a.href=canvas.toDataURL('image/png');
+    a.download=fname;
+    a.click();
+    toast(`Captura guardada: ${fname} ✓`,'success');
+  } catch(e){
+    toast('Error al capturar. Intenta con Ctrl+P o la herramienta de tu navegador.','error');
+    console.error(e);
+  } finally{
+    btn.textContent='📸 Captura'; btn.disabled=false;
+  }
+}
+
+// Cerrar fullview con Escape
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&document.getElementById('fv-overlay').style.display!=='none') closeFV(); });
+
+function exportCmpCSV(){
+  let csv='Req;Nombre;Sucursal;Proyecto;Tipo;Item;Cant;Unidad;Proveedor;Moneda;TC_a_PEN;P.Unitario;Subtotal;IGV;P.Total;Equiv.PEN\n';
+  data.reqs.forEach(r=>{
+    (r.items||[]).forEach(item=>{
+      (item.proveedores||[]).filter(p=>Number(p.precioUnit)>0).forEach(p=>{
+        const {subtotal,igv,total,totalPEN}=calcPreciosProv(p,item.cantSol);
+        const mon=p.moneda||'PEN';
+        csv+=`${r.codigo};"${r.nombre}";"${r.sucursal||''}";"${r.proyecto||''}";"${item.tipoProveedor||''}";"${item.desc||''}";${item.cantSol||0};"${item.unidad||''}";`+
+             `"${p.nombre||''}";"${mon}";${FX[mon]||1};${Number(p.precioUnit||0).toFixed(2)};${subtotal.toFixed(2)};${igv.toFixed(2)};${total.toFixed(2)};${totalPEN.toFixed(2)}\n`;
+      });
+    });
+  });
+  dl(`gesco_comparativo_${today()}.csv`,csv,'text/csv');
+  toast('Comparativo exportado ✓','success');
+}
+
+function exportCmpReqCSV(reqId){
+  const r=data.reqs.find(x=>x.id===reqId);
+  if(!r) return;
+  let csv='Req;Nombre;Tipo;Item;Cant;Unidad;Proveedor;Moneda;TC_a_PEN;P.Unitario;Subtotal;IGV;P.Total;Equiv.PEN\n';
+  (r.items||[]).forEach(item=>{
+    (item.proveedores||[]).filter(p=>Number(p.precioUnit)>0).forEach(p=>{
+      const {subtotal,igv,total,totalPEN}=calcPreciosProv(p,item.cantSol);
+      const mon=p.moneda||'PEN';
+      csv+=`${r.codigo};"${r.nombre}";"${item.tipoProveedor||''}";"${item.desc||''}";${item.cantSol||0};"${item.unidad||''}";`+
+           `"${p.nombre||''}";"${mon}";${FX[mon]||1};${Number(p.precioUnit||0).toFixed(2)};${subtotal.toFixed(2)};${igv.toFixed(2)};${total.toFixed(2)};${totalPEN.toFixed(2)}\n`;
+    });
+  });
+  dl(`gesco_cmp_${r.codigo}_${today()}.csv`,csv,'text/csv');
+  toast(`Exportado ${r.codigo} ✓`,'success');
 }
 
 function exportCotiz(tipo){
   const r=data.reqs.find(x=>x.id===curReqId);
   if(!r) return;
-  let csv='Req;Sucursal;Area;Item;Tipo;Cant.Sol;Unidad;Proveedor;Cotizacion;Plazo\n';
+  let csv='Req;Sucursal;Area;Item;Tipo;Cant.Sol;Unidad;Proveedor;Moneda;P.Unitario;Subtotal;IGV;P.Total;Plazo\n';
   (r.items||[]).filter(i=>i.tipoProveedor===tipo).forEach(item=>{
     const provs=item.proveedores||[];
-    if(provs.length){ provs.forEach(p=>{ csv+=`${r.codigo};"${r.nombre}";"${r.sucursal}";"${r.area}";"${item.desc}";"${tipo}";${item.cantSol};${item.unidad};"${p.nombre}";"${p.cotizacion}";"${p.plazo}"\n`; }); }
-    else csv+=`${r.codigo};"${r.nombre}";"${r.sucursal}";"${r.area}";"${item.desc}";"${tipo}";${item.cantSol};${item.unidad};;;;\n`;
+    if(provs.length){
+      provs.forEach(p=>{
+        const {subtotal,igv,total}=calcPreciosProv(p,item.cantSol);
+        csv+=`${r.codigo};"${r.nombre}";"${r.sucursal}";"${r.area}";"${item.desc}";"${tipo}";${item.cantSol};${item.unidad};"${p.nombre||''}";"${p.moneda||'PEN'}";${Number(p.precioUnit||0).toFixed(2)};${subtotal.toFixed(2)};${igv.toFixed(2)};${total.toFixed(2)};"${p.plazo||''}"\n`;
+      });
+    } else {
+      csv+=`${r.codigo};"${r.nombre}";"${r.sucursal}";"${r.area}";"${item.desc}";"${tipo}";${item.cantSol};${item.unidad};;;;;;\n`;
+    }
   });
   dl(`cotizacion_${tipo}_${r.codigo}_${today()}.csv`,csv,'text/csv');
   toast(`CSV "${tipo}" exportado ✓`,'success');
@@ -1466,6 +2272,7 @@ document.getElementById('ov-req').addEventListener('click',function(e){ if(e.tar
 // ══════════════════════════════════════
 renderAlerts();
 renderDash();
+fetchFX(); // Obtener tipo de cambio al iniciar
 </script>
 </body>
 </html>
